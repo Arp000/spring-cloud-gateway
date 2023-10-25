@@ -13,6 +13,11 @@ spring:
       - id: EMPLOYEE-SERVICE
         uri: lb://EMPLOYEE-SERVICE
         predicates:
-        - Path=/employee/**         
+        - Path=/employee/**  
+  config:
+    import: optional:configserver:http://localhost:8084      
 server:
   port: '8083'
+  
+spring-cloud-gateway:
+  value: 'Gateway Local Environment'
