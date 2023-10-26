@@ -9,13 +9,15 @@ spring:
     name: spring-cloud-gateway
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: 'true'
       routes:
       - id: EMPLOYEE-SERVICE
         uri: lb://EMPLOYEE-SERVICE
         predicates:
-        - Path=/employee/**  
-  config:
-    import: optional:configserver:http://localhost:8084      
+        - Path=/employee/**
+     
 server:
   port: '8083'
   
